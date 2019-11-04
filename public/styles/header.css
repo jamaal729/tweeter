@@ -1,0 +1,17 @@
+header {
+    padding-top: 140px;
+    height: 400px;
+    width: 100%;
+    top: 120px;
+    background-color: #d89820;
+    background-image: url("https://www.transparenttextures.com/patterns/transparent-square-tiles.png");
+    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+
+#avatar {
+    width: 20%;
+    display: block;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}

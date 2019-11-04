@@ -1,0 +1,17 @@
+nav {
+    /* overflow:hidden; */
+    top: 0;
+    left: 0;
+    height: 120px;
+    padding-top: 20px;
+    width: 100%;
+    position: fixed;
+    z-index: 9999;
+    color: #FFFFFF;
+    background-color: #4056A1;
+}
+
+#navbar #navspan {
+    margin: 1.5em;
+    font-family: Bungee;
+}
