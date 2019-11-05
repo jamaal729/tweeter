@@ -3,15 +3,15 @@ nav {
     top: 0;
     left: 0;
     height: 120px;
-    padding-top: 20px;
     width: 100%;
+    padding-top: 20px;
     position: fixed;
     z-index: 9999;
     color: #FFFFFF;
     background-color: #4056A1;
 }
 
-#navbar #navspan {
+nav span {
     margin: 1.5em;
     font-family: Bungee;
 }
