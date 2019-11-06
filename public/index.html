@@ -52,15 +52,17 @@
             </form>
         </section>
         <br>
-        <section>
+        <section id="tweet-container">
             <article class="tweet">
                 <header>
-                    <img src="/images/profile-hex.png" style="height: 50px; width:auto; ">
-                    <h3> Newton</h3>
-                    <h3> @Newton</h3>
+                    <span>
+                        <img id="avatars" src="/images/profile-hex.png">
+                        <h3 id="name"> Newton</h3>
+                    </span>
+                    <h3 id="handle"> @Newton</h3>
                 </header>
 
-                <section>Tweet here:</section>
+                <section id="tweet-content"></section>
 
                 <footer>
                     <p>10 days ago</p>
@@ -68,7 +70,7 @@
 
             </article>
             <br>
-            <div class="dummy-div" style="height: 200px; border: thin solid black"></div>
+            <!-- <div class="dummy-div" style="height: 200px; border: thin solid black"></div> -->
         </section>
     </main>
 

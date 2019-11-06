@@ -39,7 +39,7 @@ body nav {
 }
 
 article.tweet {
-  /* height: 150px; */
+  /* height: 300px; */
   padding-left: 20px;
   padding-right: 20px;
   border-style: solid;
@@ -51,25 +51,38 @@ article.tweet:hover {
 
 article.tweet header {
   align-items: center;
-  /* display:inline-flex; */
+  justify-content: space-between;
+  /* display: flex; */
   display: flex;
-  
-  align-items: center;
   height: 60px;
-  font-size: 10px;
-  font-weight: lighter;
-}
-
-article.tweet section {
   font-size: 16px;
+  font-weight: lighter;
 }
 
 article.tweet footer {
   border-top: 2px solid black;
-
-  height: 50px;
+  height: 60px;
   font-size: 10px;
   font-weight: lighter;
+  margin-bottom: 0;
+}
+
+article.tweet section {
+  font-size: 16px;
+  height: 60px;
+}
+
+
+
+article.tweet span {
+  display: flex;
+  align-items: center;
+}
+
+article.tweet img {
+  height: 50px;
+  width: auto;
+  padding-right: 10px;
 }
 
 /* article header img {
