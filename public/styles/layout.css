@@ -5,37 +5,77 @@
  */
 
 html {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 *,
 *:before,
 *:after {
-    box-sizing: inherit;
+  box-sizing: inherit;
 }
-
 
 /*
  * Global layout stuff
  */
 
 body {
-    color: #545149;
-    background-color: #f4f1ec;
-    font-size: 24px;
-    font-family: 'Source Sans Pro', sans-serif;
+  color: #545149;
+  background-color: #f4f1ec;
+  font-size: 24px;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 body nav {
-    font-family: Bungee, sans-serif;
+  font-family: Bungee, sans-serif;
 }
-
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
 .container {
-    margin-left: 5%;
-    margin-right: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+article.tweet {
+  /* height: 150px; */
+  padding-left: 20px;
+  padding-right: 20px;
+  border-style: solid;
+}
+
+article.tweet:hover {
+  box-shadow: 5px 5px grey;
+}
+
+article.tweet header {
+  align-items: center;
+  /* display:inline-flex; */
+  display: flex;
+  
+  align-items: center;
+  height: 60px;
+  font-size: 10px;
+  font-weight: lighter;
+}
+
+article.tweet section {
+  font-size: 16px;
+}
+
+article.tweet footer {
+  border-top: 2px solid black;
+
+  height: 50px;
+  font-size: 10px;
+  font-weight: lighter;
+}
+
+/* article header img {
+    
+} */
+
+hr {
+  border: 20px;
 }

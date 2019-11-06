@@ -1,11 +1,11 @@
-header {
+#main-header {
     text-align: center;  
      margin:auto;
     top: 120px;
     padding-top: 140px;
     height: 400px;
     width: 100%;
-    background-color: #83b1c7;
+    background-color: #a0c7da;
     background-image: url("https://www.transparenttextures.com/patterns/transparent-square-tiles.png");
     /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }

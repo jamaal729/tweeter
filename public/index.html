@@ -33,7 +33,7 @@
         </div>
     </nav>
 
-    <header>
+    <header id="main-header">
         <img src="/images/profile-hex.png">
         <h2>Jamaal</h2>
     </header>
@@ -44,20 +44,34 @@
         <section class="new-tweet">
             <h2>Compose Tweet</h2>
             <form action="/tweets" method="POST">
+                <!-- style="border-bottom: 2px solid black"  -->
                 <textarea name="text" id="text" placeholder="What are you humming about?"></textarea>
+                <hr>
                 <input type="submit" value="Tweet">
                 <span class="counter">140</span>
             </form>
         </section>
+        <br>
+        <section>
+            <article class="tweet">
+                <header>
+                    <img src="/images/profile-hex.png" style="height: 50px; width:auto; ">
+                    <h3> Newton</h3>
+                    <h3> @Newton</h3>
+                </header>
 
-        <div id="empty lines" style="padding-top:180px">
-            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur. </p>
-        </div>
+                <section>Tweet here:</section>
 
+                <footer>
+                    <p>10 days ago</p>
+                </footer>
+
+            </article>
+            <br>
+            <div class="dummy-div" style="height: 200px; border: thin solid black"></div>
+        </section>
     </main>
+
 </body>
 
 </html>
