@@ -43,6 +43,7 @@ article.tweet {
   padding-left: 20px;
   padding-right: 20px;
   border-style: solid;
+  margin-bottom: 10px;
 }
 
 article.tweet:hover {
@@ -72,8 +73,6 @@ article.tweet section {
   height: 60px;
 }
 
-
-
 article.tweet span {
   display: flex;
   align-items: center;
@@ -85,9 +84,7 @@ article.tweet img {
   padding-right: 10px;
 }
 
-/* article header img {
-    
-} */
+/* article header img {} */
 
 hr {
   border: 20px;
