@@ -70,26 +70,6 @@ $(document).ready(function() {
   // renderTweets(data);
   console.log(renderTweets(data));
 
-  // Post new tweets
-  const newTweets = function() {
-    $("form").on("submit", function(event) {
-      console.log("submitted tweet?");
-      event.preventDefault();
-      $.ajax("/tweets", {
-        method: "POST",
-        data: $(".new-tweet textarea").serialize(),
-        dataType: "text"
-      })
-        .done(function() {
-          console.log("success");
-          loadTweets(data);
-        })
-        .fail(function() {
-          console.log("error");
-        });
-    });
-  };
-
   // Load the tweets
   const loadTweets = function() {
     console.log("loaded tweets?");
@@ -106,6 +86,42 @@ $(document).ready(function() {
       .fail(function() {
         console.log("error");
       });
+  };
+
+  // Post new tweets
+  const newTweets = function() {
+    $("form").on("submit", function(event) {
+      const tweetContent = $(".new-tweet textarea").serialize();
+      alert("tweet content: ", tweetContent);
+      if (validContent(tweetContent)) {
+        alert("invalid content");
+      } else {
+        console.log("submitted tweet?");
+        event.preventDefault();
+        $.ajax("/tweets", {
+          method: "POST",
+          data: $(".new-tweet textarea").serialize(),
+          dataType: "text"
+        })
+          .done(function() {
+            console.log("success");
+            loadTweets(data);
+          })
+          .fail(function() {
+            console.log("error");
+          });
+      }
+    });
+  };
+
+  // Check for valid tweet
+  const validContent = function(tweetContent) {
+    alert( "inside validation: ", tweetContent);
+    if (!tweetContent || tweetContent.length > 140) {
+      return false;
+    } else {
+      return true;
+    }
   };
 
   newTweets();
