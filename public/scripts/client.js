@@ -33,42 +33,25 @@ $(document).ready(function() {
     // loops through tweets
     // calls createTweetElement for each tweet
     // takes return value and appends it to the tweets container
+    
 
+    console.log("data: ", data);
+    let tweetArr = [];
+    console.log(typeof tweets);
     for (let tweet of tweets) {
+      tweetArr.push(tweet);
+    }
+    tweetArr = tweetArr.reverse();
+    
+    console.log("tweets: ", tweets);
+    for (let tweet of tweetArr) {
       let tweetHtml = createTweetElement(tweet);
-      $("#tweets-container").append(tweetHtml);
+      $("#tweets-container").append((tweetHtml));
     }
   };
 
-  // Fake data taken from initial-tweets.json
-  const data = [
-    {
-      user: {
-        name: "Newton",
-        avatars: "https://i.imgur.com/73hZDYK.png",
-        handle: "@SirIsaac"
-      },
-      content: {
-        text:
-          "If I have seen further it is by standing on the shoulders of giants"
-      },
-      created_at: 1461116232227
-    },
-    {
-      user: {
-        name: "Descartes",
-        avatars: "https://i.imgur.com/nlhLi3I.png",
-        handle: "@rd"
-      },
-      content: {
-        text: "Je pense , donc je suis"
-      },
-      created_at: 1461113959088
-    }
-  ];
-
-  // renderTweets(data);
-  console.log(renderTweets(data));
+  // start with empty tweets
+  const data = [];
 
   // Load the tweets
   const loadTweets = function() {
@@ -92,11 +75,14 @@ $(document).ready(function() {
   const newTweets = function() {
     $("form").on("submit", function(event) {
       const tweetContent = $(".new-tweet textarea").serialize();
-      alert("tweet content: ", tweetContent);
-      if (validContent(tweetContent)) {
-        alert("invalid content");
-      } else {
+      // alert("tweet content: ", tweetContent);
+
+      // if (validContent(tweetContent)) {
+      //   alert("invalid content");
+      // } else {}
+
         console.log("submitted tweet?");
+        console.log("data: " , data);
         event.preventDefault();
         $.ajax("/tweets", {
           method: "POST",
@@ -110,7 +96,7 @@ $(document).ready(function() {
           .fail(function() {
             console.log("error");
           });
-      }
+      
     });
   };
 
