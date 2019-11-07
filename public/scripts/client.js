@@ -69,4 +69,25 @@ $(document).ready(function() {
 
   // renderTweets(data);
   console.log(renderTweets(data));
+
+  // Post new tweets
+  const newTweets = function() {
+    $("form").on("submit", function(event) {
+      console.log("submitted tweet?");
+      event.preventDefault();
+      $.ajax("/tweets", {
+        method: "POST",
+        data: $(".new-tweet textarea").serialize(),
+        dataType: "text"
+      })
+        .done(function() {
+          console.log("success");
+        })
+        .fail(function() {
+          console.log("error");
+        });
+    });
+  };
+
+  newTweets();
 });
