@@ -82,6 +82,7 @@ $(document).ready(function() {
       })
         .done(function() {
           console.log("success");
+          loadTweets(data);
         })
         .fail(function() {
           console.log("error");
@@ -89,5 +90,24 @@ $(document).ready(function() {
     });
   };
 
+  // Load the tweets
+  const loadTweets = function() {
+    console.log("loaded tweets?");
+    event.preventDefault();
+    $.ajax({
+      method: "GET",
+      url: "/tweets",
+      dataType: "json"
+    })
+      .done(function(data) {
+        $("#tweets-container").empty();
+        renderTweets(data);
+      })
+      .fail(function() {
+        console.log("error");
+      });
+  };
+
   newTweets();
+  loadTweets();
 });
