@@ -33,7 +33,6 @@ $(document).ready(function() {
     // loops through tweets
     // calls createTweetElement for each tweet
     // takes return value and appends it to the tweets container
-    
 
     console.log("data: ", data);
     let tweetArr = [];
@@ -42,11 +41,11 @@ $(document).ready(function() {
       tweetArr.push(tweet);
     }
     tweetArr = tweetArr.reverse();
-    
+
     console.log("tweets: ", tweets);
     for (let tweet of tweetArr) {
       let tweetHtml = createTweetElement(tweet);
-      $("#tweets-container").append((tweetHtml));
+      $("#tweets-container").append(tweetHtml);
     }
   };
 
@@ -81,28 +80,27 @@ $(document).ready(function() {
       //   alert("invalid content");
       // } else {}
 
-        console.log("submitted tweet?");
-        console.log("data: " , data);
-        event.preventDefault();
-        $.ajax("/tweets", {
-          method: "POST",
-          data: $(".new-tweet textarea").serialize(),
-          dataType: "text"
+      console.log("submitted tweet?");
+      console.log("data: ", data);
+      event.preventDefault();
+      $.ajax("/tweets", {
+        method: "POST",
+        data: $(".new-tweet textarea").serialize(),
+        dataType: "text"
+      })
+        .done(function() {
+          console.log("success");
+          loadTweets(data);
         })
-          .done(function() {
-            console.log("success");
-            loadTweets(data);
-          })
-          .fail(function() {
-            console.log("error");
-          });
-      
+        .fail(function() {
+          console.log("error");
+        });
     });
   };
 
   // Check for valid tweet
   const validContent = function(tweetContent) {
-    alert( "inside validation: ", tweetContent);
+    alert("inside validation: ", tweetContent);
     if (!tweetContent || tweetContent.length > 140) {
       return false;
     } else {
@@ -113,14 +111,7 @@ $(document).ready(function() {
   newTweets();
   loadTweets();
 
-
-  $( "#clickme" ).click(function() {
-    $( "#book" ).slideToggle( "slow", function() {
-      // Animation complete.
-    });
+  $("#tweets-toggle").click(function() {
+    $("#newtweet").slideToggle(300, function() {});
   });
-  
-
-
-
 });

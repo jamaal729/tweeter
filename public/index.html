@@ -37,7 +37,7 @@
             </div>
             <div style="align-content: center;">
 
-                <a href=#tweets-top>
+                <a id="tweets-toggle" href=#tweets-top>
                     <img src="/images/tweeter-toggle.png">
                 </a>
             </div>
@@ -53,15 +53,15 @@
     <main class="container">
 
         <section class="new-tweet">
-            <h2>Compose Tweet</h2>
             <form id="newtweet" action="/tweets" method="POST">
+                <h2>Compose Tweet</h2>
                 <!-- style="border-bottom: 2px solid black"  -->
                 <textarea name="text" id="text" placeholder="What are you humming about?"></textarea>
                 <hr>
                 <input type="submit" value="Tweet">
                 <span class="counter">140</span>
             </form>
-            <a id="tweets-top"></a>
+            <!-- <a id="tweets-top"></a> -->
         </section>
         <br>
 
