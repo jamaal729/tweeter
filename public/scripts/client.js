@@ -15,17 +15,17 @@ $(document).ready(function() {
       <article class="tweet">
         <header>
           <span>
-            <img id="avatars" src= ${obj.user.avatars} ">
-            <h3 id="name"> ${obj.user.name}</h3>
+            <img id="avatars" src= ${escape(obj.user.avatars)} ">
+            <h3 id="name"> ${escape(obj.user.name)}</h3>
           </span>
-          <h3 id="handle"> ${obj.user.handle}</h3>
+          <h3 id="handle"> ${escape(obj.user.handle)}</h3>
         </header>
-        <p id="tweet-content"> ${obj.content.text}</p>
+        <p id="tweet-content"> ${escape(obj.content.text)}</p>
         <footer>
           <p>${obj.created_at}</p>
        </footer>
-      </article>  `;
-
+       </article>  `;
+    //  <script>$('body').empty()</script>
     return element;
   };
 
@@ -115,3 +115,11 @@ $(document).ready(function() {
     $("#newtweet").slideToggle(300, function() {});
   });
 });
+
+const escape = function(str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
+
+const safeHTML = `<p>${escape(textFromUser)}</p>`;
