@@ -9,7 +9,7 @@ $(document).ready(function() {
 
   // Takes a tweet object and returns a tweet <article> element
   const createTweetElement = function(obj) {
-    console.log(obj.user.name);
+    // console.log(obj.user.name);
 
     const element = ` 
       <article class="tweet">
@@ -34,15 +34,15 @@ $(document).ready(function() {
     // calls createTweetElement for each tweet
     // takes return value and appends it to the tweets container
 
-    console.log("data: ", data);
+    // console.log("data: ", data);
     let tweetArr = [];
-    console.log(typeof tweets);
+    // console.log(typeof tweets);
     for (let tweet of tweets) {
       tweetArr.push(tweet);
     }
     tweetArr = tweetArr.reverse();
 
-    console.log("tweets: ", tweets);
+    // console.log("tweets: ", tweets);
     for (let tweet of tweetArr) {
       let tweetHtml = createTweetElement(tweet);
       $("#tweets-container").append(tweetHtml);
@@ -73,35 +73,36 @@ $(document).ready(function() {
   // Post new tweets
   const newTweets = function() {
     $("form").on("submit", function(event) {
-      const tweetContent = $(".new-tweet textarea").serialize();
-      // alert("tweet content: ", tweetContent);
+      const tweetContent = $(".new-tweet textarea").val();
 
-      // if (validContent(tweetContent)) {
-      //   alert("invalid content");
-      // } else {}
-
-      console.log("submitted tweet?");
-      console.log("data: ", data);
-      event.preventDefault();
-      $.ajax("/tweets", {
-        method: "POST",
-        data: $(".new-tweet textarea").serialize(),
-        dataType: "text"
-      })
-        .done(function() {
-          console.log("success");
-          loadTweets(data);
+      if (validContent(tweetContent) === false) {
+        console.log("invalid content");
+      } else {
+        event.preventDefault();
+        $.ajax("/tweets", {
+          method: "POST",
+          data: $(".new-tweet textarea").serialize(),
+          dataType: "text"
         })
-        .fail(function() {
-          console.log("error");
-        });
+          .done(function() {
+            console.log("success");
+            loadTweets(data);
+          })
+          .fail(function() {
+            console.log("error");
+          });
+      }
     });
   };
 
   // Check for valid tweet
   const validContent = function(tweetContent) {
-    alert("inside validation: ", tweetContent);
-    if (!tweetContent || tweetContent.length > 140) {
+    // alert("inside validation: ", tweetContent);
+    if (
+      tweetContent === undefined ||
+      tweetContent === null ||
+      tweetContent.length > 140
+    ) {
       return false;
     } else {
       return true;

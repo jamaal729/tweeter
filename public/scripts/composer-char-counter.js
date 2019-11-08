@@ -4,7 +4,7 @@ $(document).ready(() => {
   $("#text").keyup(function() {
     let tweetText = this.value;
     let count = tweetText.length;
-    console.log(count);
+    // console.log(count);
     $(this)
       .parent()
       .children("span.counter")
