@@ -112,4 +112,15 @@ $(document).ready(function() {
 
   newTweets();
   loadTweets();
+
+
+  $( "#clickme" ).click(function() {
+    $( "#book" ).slideToggle( "slow", function() {
+      // Animation complete.
+    });
+  });
+  
+
+
+
 });

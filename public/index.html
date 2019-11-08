@@ -27,9 +27,20 @@
 
 <body>
     <!-- Top nav bar (fixed) -->
-    <nav>
-        <div>
+    <nav style="display:inline">
+        <div style="display: inline;">
             <span>tweeter</span>
+        </div>
+        <div style="float:right ;display:block; align-items: center; ">
+            <div>
+                <strong>Write </strong> a new tweet
+            </div>
+            <div style="align-content: center;">
+
+                <a href=#tweets-top>
+                    <img src="/images/tweeter-toggle.png">
+                </a>
+            </div>
         </div>
     </nav>
 
@@ -50,8 +61,10 @@
                 <input type="submit" value="Tweet">
                 <span class="counter">140</span>
             </form>
+            <a id="tweets-top"></a>
         </section>
         <br>
+
         <section id="tweets-container">
             <br>
             <!-- <div class="dummy-div" style="height: 200px; border: thin solid black"></div> -->
