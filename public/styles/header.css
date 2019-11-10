@@ -1,22 +1,33 @@
 #main-header {
-    text-align: center;  
-     margin:auto;
-    top: 120px;
-    padding-top: 140px;
-    height: 400px;
-    width: 100%;
-    background-color: #6f6f6f;
-    background-image: url("https://www.transparenttextures.com/patterns/transparent-square-tiles.png");
-    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  text-align: center;
+  margin: auto;
+  top: 120px;
+  padding-top: 140px;
+  height: 400px;
+  width: 100%;
+  background-color: #6f6f6f;
+  background-image: url("https://www.transparenttextures.com/patterns/transparent-square-tiles.png");
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
 header img {
-    height: 60%;
-    position:relative
+  height: 60%;
+  position: relative;
 }
 
 header h2 {
-    color: #FFFFFF;
-    font-size: 40px;
-    margin: 0px;
+  color: #ffffff;
+  font-size: 40px;
+  margin: 0px;
+}
+
+@media (min-width: 768px) {
+  #main-header {
+    float: left;
+    /* display:block; */
+    margin-top: 300px;
+    width: 40%;
+    margin-left: 5%;
+    /* margin-right: 5%; */
+  }
 }

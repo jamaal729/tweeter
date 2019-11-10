@@ -92,3 +92,24 @@ article.tweet img {
 hr {
   border: 20px;
 }
+
+@media (min-width: 768px) {
+  /* #main-header {
+    float: left;
+    margin: 200px;
+  } */
+
+  body {
+    display: flex;
+  }
+
+  .container {
+    /* display: inline-block; */
+    /* display: inline-flexbox; */
+    margin-top: 200px;
+    float: right;
+    width: auto;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
