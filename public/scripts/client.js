@@ -12,6 +12,34 @@ $(document).ready(function() {
   const createTweetElement = function(obj) {
     // console.log(obj.user.name);
 
+    // Format tweet creation time
+    let timeDisplay = "";
+    let tweetAge = Math.floor(
+      new Date(Date.now() - obj.created_at).getTime() / 1000
+    );
+
+    if (tweetAge < 1) {
+      timeDisplay = "now";
+      //
+    } else if (tweetAge < 60) {
+      timeDisplay = tweetAge + " seconds ago";
+      //
+    } else if (tweetAge < 3600) {
+      timeDisplay = Math.floor(tweetAge / 60) + " minutes ago";
+      //
+    } else if (tweetAge < 86400) {
+      timeDisplay = Math.floor(tweetAge / 3600) + " hours ago";
+      //
+    } else if (tweetAge < 2592000) {
+      timeDisplay = Math.floor(tweetAge / 86400) + " days ago";
+      //
+    } else if (tweetAge < 31104000) {
+      timeDisplay = Math.floor(tweetAge / 2592000) + " months ago";
+      //
+    } else {
+      timeDisplay = Math.floor(tweetAge / 31104000) + " years ago";
+    }
+
     const element = ` 
       <article class="tweet">
         <header>
@@ -23,10 +51,15 @@ $(document).ready(function() {
         </header>
         <p id="tweet-content"> ${escape(obj.content.text)}</p>
         <footer>
-          <p>${obj.created_at}</p>
+          <p>${timeDisplay}</p>
        </footer>
        </article>  `;
     //  <script>$('body').empty()</script>
+
+    // <p>
+    //   ${Math.floor(new Date(Date.now() - obj.created_at).getTime() / 1000)}
+    // </p>;
+
     return element;
   };
 
