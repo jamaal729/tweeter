@@ -6,6 +6,7 @@
 
 $(document).ready(function() {
   console.log("client js ready!");
+  $(".validation-error").hide();
 
   // Takes a tweet object and returns a tweet <article> element
   const createTweetElement = function(obj) {
@@ -72,13 +73,18 @@ $(document).ready(function() {
 
   // Post new tweets
   const newTweets = function() {
-    $("form").on("submit", function(event) {
-      const tweetContent = $(".new-tweet textarea").val();
-
-      if (validContent(tweetContent) === false) {
+    $("#newtweet").on("submit", function() {
+      event.preventDefault();
+      console.log($(".new-tweet textarea").val());
+      let tweetContent = $(".new-tweet textarea").serialize();
+      console.log("tweetContent :", tweetContent);
+      if (!validContent(tweetContent)) {
         console.log("invalid content");
+        $(".validation-error").slideDown();
       } else {
-        event.preventDefault();
+        $(".validation-error").slideUp();
+        console.log("valid content");
+        // event.preventDefault();
         $.ajax("/tweets", {
           method: "POST",
           data: $(".new-tweet textarea").serialize(),
@@ -96,12 +102,15 @@ $(document).ready(function() {
   };
 
   // Check for valid tweet
-  const validContent = function(tweetContent) {
-    // alert("inside validation: ", tweetContent);
+  const validContent = function(tweetText) {
+    console.log(typeof tweetText);
+    tweetText = tweetText.replace("text=", "");
+    console.log(tweetText);
     if (
-      tweetContent === undefined ||
-      tweetContent === null ||
-      tweetContent.length > 140
+      tweetText === undefined ||
+      tweetText === null ||
+      tweetText === "" ||
+      tweetText.length > 140
     ) {
       return false;
     } else {
@@ -109,8 +118,8 @@ $(document).ready(function() {
     }
   };
 
-  newTweets();
   loadTweets();
+  newTweets();
 
   $("#tweets-toggle").click(function() {
     $("#newtweet").slideToggle(300, function() {});
@@ -123,4 +132,4 @@ const escape = function(str) {
   return div.innerHTML;
 };
 
-const safeHTML = `<p>${escape(textFromUser)}</p>`;
+const safeHTML = `<p>${escape("<hello>")}</p>`; // delete ------------------

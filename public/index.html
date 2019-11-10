@@ -54,6 +54,11 @@
 
         <section class="new-tweet">
             <form id="newtweet" action="/tweets" method="POST">
+
+                <div class="validation-error" style="border: 3px solid red">
+                    <p>That is an error!</p>
+                </div>
+
                 <h2>Compose Tweet</h2>
                 <!-- style="border-bottom: 2px solid black"  -->
                 <textarea name="text" id="text" placeholder="What are you humming about?"></textarea>
