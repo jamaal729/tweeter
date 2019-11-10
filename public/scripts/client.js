@@ -16,6 +16,7 @@ $(document).ready(function() {
       new Date(Date.now() - obj.created_at).getTime() / 1000
     );
 
+    console.log(tweetAge);
     if (tweetAge < 1) {
       timeDisplay = "now";
     } else if (tweetAge < 60) {

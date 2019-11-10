@@ -39,7 +39,6 @@ body nav {
 }
 
 article.tweet {
-  /* height: 240px; */
   padding-left: 20px;
   padding-right: 20px;
   border-style: solid;
@@ -54,7 +53,6 @@ article.tweet:hover {
 article.tweet header {
   align-items: center;
   justify-content: space-between;
-  /* display: flex; */
   display: flex;
   height: 60px;
   font-size: 1em;
@@ -71,8 +69,6 @@ article.tweet footer {
 }
 
 article.tweet #tweet-content {
-  /* font-size: 16px;    changing size here!!!!!!!! */
-  /* font-size: 1.5em; */
   height: 60px;
 }
 
@@ -87,28 +83,20 @@ article.tweet img {
   padding-right: 10px;
 }
 
-/* article header img {} */
-
 hr {
   border: 20px;
 }
 
-@media (min-width: 768px) {
-  /* #main-header {
-    float: left;
-    margin: 200px;
-  } */
-
+@media (min-width: 1024px) {
   body {
     display: flex;
   }
 
   .container {
-    /* display: inline-block; */
-    /* display: inline-flexbox; */
-    margin-top: 200px;
+    margin-top: 300px;
     float: right;
     width: auto;
+    min-width: 50%;
     margin-left: 5%;
     margin-right: 5%;
   }

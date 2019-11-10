@@ -4,7 +4,6 @@ $(document).ready(() => {
   $("#text").keyup(function() {
     let tweetText = this.value;
     let count = tweetText.length;
-    // console.log(count);
     $(this)
       .parent()
       .children("span.counter")
@@ -13,7 +12,5 @@ $(document).ready(() => {
     count <= 140
       ? $(".counter").css({ color: "black" })
       : $(".counter").css({ color: "red" });
-
-    //  console.log($(this).parent().children("span.counter").innerText);
   });
 });

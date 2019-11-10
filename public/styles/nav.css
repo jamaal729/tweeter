@@ -1,19 +1,15 @@
 nav {
-  /* overflow:hidden; */
   top: 0;
   left: 0;
   height: 120px;
   width: 100%;
-  /* padding-top: 20px; */
   position: fixed;
   z-index: 9999;
-  color: #ffffff;
-  background-color: #4056a1;
-  /* display:inline */
+  color: #FFFFFF;
+  background-color: #888888;
 }
 
 nav span {
-  /* margin-top: 0em; */
   margin: 1.5em;
 }
 
@@ -37,6 +33,8 @@ nav span {
   padding-top: 10px;
 }
 
-@media (min-width: 768px) {
-   { }
+@media (min-width: 1024px) {
+  nav {
+    background-color: #4056a1;
+  }
 }
