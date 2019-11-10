@@ -28,22 +28,22 @@
 <body>
     <!-- Top nav bar (fixed) -->
     <nav style="display:inline">
-        <div style="display: inline;">
-            <span>tweeter</span>
-        </div>
-        <div style="float:right ;display:block; align-items: center; ">
+        <span id="nav-left">
+            <div>tweeter</div>
+        </span>
+        <span id="nav-right">
             <div>
                 <strong>Write </strong> a new tweet
             </div>
-            <div style="align-content: center;">
-
+            <div style="">
                 <a id="tweets-toggle" href=#tweets-top>
-                    <img src="/images/tweeter-toggle.png">
+                    <img id="formSlideBtn" src="/images/tweeter-toggle.png">
                 </a>
             </div>
-        </div>
+        </span>
     </nav>
 
+    <!-- Main header, just an avatar and user name -->
     <header id="main-header">
         <img src="/images/profile-hex.png">
         <h2>Jamaal</h2>
@@ -51,7 +51,6 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-
         <section class="new-tweet">
             <form id="newtweet" action="/tweets" method="POST">
 
