@@ -82,12 +82,15 @@ $(document).ready(function() {
         console.log("invalid content");
         $(".validation-error").slideDown();
       } else {
-        $(".validation-error").slideUp();
         console.log("valid content");
+        $(".validation-error").slideUp();
+        $(".new-tweet textarea").val("");
+        $(".counter").text(140);
         // event.preventDefault();
         $.ajax("/tweets", {
           method: "POST",
-          data: $(".new-tweet textarea").serialize(),
+          // data: $(".new-tweet textarea").serialize(),
+          data: tweetContent,
           dataType: "text"
         })
           .done(function() {
@@ -106,12 +109,14 @@ $(document).ready(function() {
     console.log(typeof tweetText);
     tweetText = tweetText.replace("text=", "");
     console.log(tweetText);
-    if (
-      tweetText === undefined ||
-      tweetText === null ||
-      tweetText === "" ||
-      tweetText.length > 140
-    ) {
+    // tweetText === undefined ||
+    // tweetText === null ||
+
+    if (tweetText === "") {
+      $(".validation-error p").text("❗️Tweet cannot be empty❗️");
+      return false;
+    } else if (tweetText.length > 140) {
+      $(".validation-error p").text("❗️Tweet has more than 140 characters❗️");
       return false;
     } else {
       return true;

@@ -23,3 +23,11 @@ span.counter {
   font-family: Bungee;
   float: right;
 }
+
+.validation-error {
+  border: 3px solid red;
+}
+
+.validation-error p {
+  color: red;
+}
