@@ -10,8 +10,6 @@ $(document).ready(function() {
 
   // Takes a tweet object and returns a tweet <article> element
   const createTweetElement = function(obj) {
-    // console.log(obj.user.name);
-
     // Format tweet creation time
     let timeDisplay = "";
     let tweetAge = Math.floor(
@@ -20,22 +18,16 @@ $(document).ready(function() {
 
     if (tweetAge < 1) {
       timeDisplay = "now";
-      //
     } else if (tweetAge < 60) {
       timeDisplay = tweetAge + " seconds ago";
-      //
     } else if (tweetAge < 3600) {
       timeDisplay = Math.floor(tweetAge / 60) + " minutes ago";
-      //
     } else if (tweetAge < 86400) {
       timeDisplay = Math.floor(tweetAge / 3600) + " hours ago";
-      //
     } else if (tweetAge < 2592000) {
       timeDisplay = Math.floor(tweetAge / 86400) + " days ago";
-      //
     } else if (tweetAge < 31104000) {
       timeDisplay = Math.floor(tweetAge / 2592000) + " months ago";
-      //
     } else {
       timeDisplay = Math.floor(tweetAge / 31104000) + " years ago";
     }
@@ -56,10 +48,6 @@ $(document).ready(function() {
        </article>  `;
     //  <script>$('body').empty()</script>
 
-    // <p>
-    //   ${Math.floor(new Date(Date.now() - obj.created_at).getTime() / 1000)}
-    // </p>;
-
     return element;
   };
 
@@ -68,27 +56,22 @@ $(document).ready(function() {
     // calls createTweetElement for each tweet
     // takes return value and appends it to the tweets container
 
-    // console.log("data: ", data);
     let tweetArr = [];
-    // console.log(typeof tweets);
     for (let tweet of tweets) {
       tweetArr.push(tweet);
     }
     tweetArr = tweetArr.reverse();
-
-    // console.log("tweets: ", tweets);
     for (let tweet of tweetArr) {
       let tweetHtml = createTweetElement(tweet);
       $("#tweets-container").append(tweetHtml);
     }
   };
 
-  // start with empty tweets
+  // Start with empty tweets
   const data = [];
 
   // Load the tweets
   const loadTweets = function() {
-    console.log("loaded tweets?");
     event.preventDefault();
     $.ajax({
       method: "GET",
@@ -110,19 +93,14 @@ $(document).ready(function() {
       event.preventDefault();
       console.log($(".new-tweet textarea").val());
       let tweetContent = $(".new-tweet textarea").serialize();
-      console.log("tweetContent :", tweetContent);
       if (!validContent(tweetContent)) {
-        console.log("invalid content");
         $(".validation-error").slideDown();
       } else {
-        console.log("valid content");
         $(".validation-error").slideUp();
         $(".new-tweet textarea").val("");
         $(".counter").text(140);
-        // event.preventDefault();
         $.ajax("/tweets", {
           method: "POST",
-          // data: $(".new-tweet textarea").serialize(),
           data: tweetContent,
           dataType: "text"
         })
@@ -139,17 +117,12 @@ $(document).ready(function() {
 
   // Check for valid tweet
   const validContent = function(tweetText) {
-    console.log(typeof tweetText);
     tweetText = tweetText.replace("text=", "");
-    console.log(tweetText);
-    // tweetText === undefined ||
-    // tweetText === null ||
-
     if (tweetText === "") {
-      $(".validation-error p").text("❗️Tweet cannot be empty❗️");
+      $(".validation-error p").text("❗️Tweet cannot be empty");
       return false;
     } else if (tweetText.length > 140) {
-      $(".validation-error p").text("❗️Tweet has more than 140 characters❗️");
+      $(".validation-error p").text("❗️Tweet has more than 140 characters");
       return false;
     } else {
       return true;
@@ -161,6 +134,7 @@ $(document).ready(function() {
 
   $("#tweets-toggle").click(function() {
     $("#newtweet").slideToggle(300, function() {});
+    $("textarea").focus();
   });
 });
 
@@ -170,4 +144,4 @@ const escape = function(str) {
   return div.innerHTML;
 };
 
-const safeHTML = `<p>${escape("<hello>")}</p>`; // delete ------------------
+const safeHTML = `<p>${escape("<hello>")}</p>`;

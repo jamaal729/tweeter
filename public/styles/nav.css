@@ -9,6 +9,7 @@ nav {
   z-index: 9999;
   color: #ffffff;
   background-color: #4056a1;
+  /* display:inline */
 }
 
 nav span {
