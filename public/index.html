@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
 
     <!-- External CSS -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
 
-    <link href="https://fonts.googleapis.com/css?family=Bungee|Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Bungee|Source+Sans+Pro&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
@@ -22,51 +24,54 @@
     <!-- App JS -->
 
     <script type="text/javascript" src="/scripts/client.js"></script>
-    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
-</head>
+    <script
+      type="text/javascript"
+      src="/scripts/composer-char-counter.js"
+    ></script>
+  </head>
 
-<body>
+  <body>
     <!-- Top nav bar (fixed) -->
     <nav>
-        <span id="nav-left">
-            <div>tweeter</div>
-        </span>
-        <span id="nav-right">
-            <div>
-                <strong>Write </strong> a new tweet
-            </div>
-            <div>
-                <a id="tweets-toggle" href=#tweets-top>
-                    <img id="formSlideBtn" src="/images/tweeter-toggle.png">
-                </a>
-            </div>
-        </span>
+      <span id="nav-left">
+        <div>tweeter</div>
+      </span>
+      <span id="nav-right">
+        <div><strong>Write </strong> a new tweet</div>
+        <div>
+          <a id="tweets-toggle" href="#tweets-top">
+            <img id="formSlideBtn" src="/images/tweeter-toggle.png" />
+          </a>
+        </div>
+      </span>
     </nav>
 
     <!-- Main header, just an avatar and user name -->
     <header id="main-header">
-        <img src="/images/profile-hex.png">
-        <h2>Jamaal</h2>
+      <img src="/images/profile-hex.png" />
+      <h2>Jamaal</h2>
     </header>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-        <section class="new-tweet">
-            <form id="newtweet" action="/tweets" method="POST">
-                <div class="validation-error">
-                    <p>Errors appear here!</p>
-                </div>
-                <h2>Compose Tweet</h2>
-                <textarea name="text" id="text" placeholder="What are you humming about?"></textarea>
-                <hr>
-                <input type="submit" value="Tweet">
-                <span class="counter">140</span>
-            </form>
-        </section>
-        <br>
-        <section id="tweets-container">
-        </section>
+      <section class="new-tweet">
+        <form id="newtweet" action="/tweets" method="POST">
+          <div class="validation-error">
+            <p>Errors appear here!</p>
+          </div>
+          <h2>Compose Tweet</h2>
+          <textarea
+            name="text"
+            id="text"
+            placeholder="What are you humming about?"
+          ></textarea>
+          <hr />
+          <input type="submit" value="Tweet" />
+          <span class="counter">140</span>
+        </form>
+      </section>
+      <br />
+      <section id="tweets-container"></section>
     </main>
-</body>
-
+  </body>
 </html>

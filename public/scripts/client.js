@@ -16,7 +16,6 @@ $(document).ready(function() {
       new Date(Date.now() - obj.created_at).getTime() / 1000
     );
 
-    console.log(tweetAge);
     if (tweetAge < 1) {
       timeDisplay = "now";
     } else if (tweetAge < 60) {
@@ -44,10 +43,14 @@ $(document).ready(function() {
         </header>
         <p id="tweet-content"> ${escape(obj.content.text)}</p>
         <footer>
-          <p>${timeDisplay}</p>
+          <span>${timeDisplay}</span>
+          <span id="extras">
+            <img src="/images/flag-icon.png">
+            <img src="/images/retweet-icon.png">
+            <img src="/images/like-icon.png">
+          </span>
        </footer>
        </article>  `;
-    //  <script>$('body').empty()</script>
 
     return element;
   };
@@ -130,13 +133,13 @@ $(document).ready(function() {
     }
   };
 
-  loadTweets();
-  newTweets();
-
   $("#tweets-toggle").click(function() {
     $("#newtweet").slideToggle(300, function() {});
     $("textarea").focus();
   });
+
+  loadTweets();
+  newTweets();
 });
 
 const escape = function(str) {
@@ -145,4 +148,4 @@ const escape = function(str) {
   return div.innerHTML;
 };
 
-const safeHTML = `<p>${escape("<hello>")}</p>`;
+const safeHTML = `<p>${escape("<client>")}</p>`;

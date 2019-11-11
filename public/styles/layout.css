@@ -66,6 +66,16 @@ article.tweet footer {
   font-size: 1em;
   font-weight: lighter;
   margin-bottom: 10px;
+  display: flex;
+}
+
+#extras {
+  display: flex;
+  margin-left: auto;
+}
+
+#extras img {
+  height: 12px;
 }
 
 article.tweet #tweet-content {
@@ -81,6 +91,10 @@ article.tweet img {
   height: 50px;
   width: auto;
   padding-right: 10px;
+}
+
+#extras:hover {
+  transform: scale(1.5);
 }
 
 hr {
